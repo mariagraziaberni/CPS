@@ -269,7 +269,7 @@ class ActorNetwork(nn.Module):
         
 class Agent: 
     
-    def __init__(self,input_dim, critic_lr=0.0005,actor_lr=0.0005, tau=0.005, gamma = 1,target_noise=0.2, update_actor_interval = 2, warmup = 1000,max_size = 1000000, layer1_size= 400, layer2_size= 300, batch_size = 100, noise = 0.2,chkpt_dir = "model"):
+    def __init__(self,input_dim, critic_lr=0.0005,actor_lr=0.0005, tau=0.005, gamma = 1,target_noise=0.2, update_actor_interval = 2, warmup = 1000,max_size = 1000000, layer1_size= 400, layer2_size= 300, batch_size = 100, noise = 0.2,chkpt_dir = "model",device=None):
     
         self.input_dims = input_dim
         
@@ -293,7 +293,13 @@ class Agent:
     
         self.warmup = warmup 
         
-        self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu') 
+        if device is not None: 
+        
+            self.device = device
+        
+        else:
+        
+            self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu') 
         print(self.device)
     
         self.update_actor_iter = update_actor_interval
