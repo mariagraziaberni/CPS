@@ -148,7 +148,7 @@ class CriticNetwork(nn.Module):
         
         if self.name is not None:
     
-            print("...saving...") 
+            #print("...saving...") 
         
             T.save(self.state_dict(),self.checkpoint_file)
         
@@ -157,7 +157,7 @@ class CriticNetwork(nn.Module):
     
         if self.name is not None:
     
-            print("..loading...") 
+           #print("..loading...") 
         
             self.load_state_dict(T.load(self.checkpoint_file)) 
             
@@ -252,7 +252,7 @@ class ActorNetwork(nn.Module):
         
         if self.name is not None:
     
-            print("...saving...") 
+            #print("...saving...") 
         
             T.save(self.state_dict(),self.checkpoint_file)
         
@@ -261,7 +261,7 @@ class ActorNetwork(nn.Module):
     
         if self.name is not None:
     
-            print("..loading...") 
+           # print("..loading...") 
         
             self.load_state_dict(T.load(self.checkpoint_file)) 
         
@@ -300,7 +300,7 @@ class Agent:
         else:
         
             self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu') 
-        print(self.device)
+       # print(self.device)
     
         self.update_actor_iter = update_actor_interval
         #(self, input_dims, fc1_dims, fc2_dims, n_actions, name=None, chkpt_dir = "save_m_2"): 
@@ -567,6 +567,11 @@ class Agent:
         self.target_critic_1.load_checkpoint()
         
         self.target_critic_2.load_checkpoint()
+        
+
+    def load_actor(self): 
+    
+        self.actor.load_checkpoint()
         
         
         
