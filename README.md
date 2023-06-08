@@ -10,7 +10,7 @@
  the behavior reach the goal in absence of any noise. In this notebook the tuning of the pid parameters 
  is performed via reinforcement learning. The parameters are  the weights of a neural network which is daved in the folders "slow_model" and "model_". 
  
- -controller.py :  contains the final version of the controller with the behaviors "reach a goal", "avoid an obstacle" and "reach a goal while avoiding an obstacle". It also contains the implementation of the kalman filter. 
+ -controller.py :  contains the final version of the controller with the behaviors "reach a goal", "avoid   an obstacle" and "reach a goal while avoiding an obstacle". It also contains the implementation of the kalman filter. 
  
 -simulation.py : a functon to perform a single simulation. It takes as argument the initial position of the robot, the target and the obstacle if present, the value of the observation and process noise and the path of the directory where the networks containing the parameters of the pid are saved. The parameter algo has value 0 in absence of noise, value 1 when noise is present but no initiative is taken to deal with it, value 2 for using a kalman filter. 
 
