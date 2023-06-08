@@ -40,7 +40,7 @@ def simulation(spatial_state, target, algo=0,sim=1200, obstacle=None,path="slow_
         
     done = False 
     
-    flag = True #vedere se riesco a incorporare questa nel controller 
+    flag = True 
     
     num_steps = 0 
     
@@ -92,13 +92,13 @@ def simulation(spatial_state, target, algo=0,sim=1200, obstacle=None,path="slow_
             
             done = controller.isArrived()
             if done: 
-                string = "arrived at episode" +str(ss)        
+                string = "arrived at episode " +str(ss)        
         
             if crush: 
         
                 done = True 
                 
-                string = "crushed at episode" +str(ss)
+                string = "crushed at episode " +str(ss)
                
                 
         controller.track_route()
